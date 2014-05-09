@@ -1,7 +1,6 @@
 package js.jqhx;
 
 import js.html.Element;
-import js.html.Node;
 
 @:native("jQuery")
 extern class JQuery {
@@ -23,7 +22,7 @@ extern class JQuery {
     static function ajaxTransport(?dataType: String,
             handler: JqAjaxOption -> JqAjaxOption -> JqXHR -> JqAjaxTransport): Void;
 
-    static function contains(container: Element, contained: Node): Bool;
+    static function contains(container: Element, contained: Element): Bool;
 
     static function data(element: Element, key: String, ?value: Dynamic): Dynamic;
 
@@ -41,7 +40,7 @@ extern class JQuery {
 
     static function param(obj: {}, ?traditional: Bool): String;
 
-    static function parseHTML(data: String, ?context: Element, ?keepScripts: Bool): Array<Node>;
+    static function parseHTML(data: String, ?context: Element, ?keepScripts: Bool): Array<Element>;
 
     static function parseJSON(json: String): Dynamic;
 
@@ -72,8 +71,8 @@ extern class JQuery {
         return untyped __js__("jQuery")(selector, context);
     }
 
-    @:overload(function (nodes: Array<Node>): JqHtml{})
-    static inline function wrap(node: Node): JqHtml {
+    @:overload(function (nodes: Array<Element>): JqHtml{})
+    static inline function wrap(node: Element): JqHtml {
         return untyped __js__("jQuery")(node);
     }
 

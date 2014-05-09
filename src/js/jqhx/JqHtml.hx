@@ -2,10 +2,12 @@ package js.jqhx;
 
 import js.html.Element;
 import js.html.Event;
-import js.html.Node;
 
 @:native("jQuery")
-extern class JqHtml implements ArrayAccess<Node> {
+extern class JqHtml implements ArrayAccess<Element> {
+    @:overload(function (elements: Array<Element>): Void {})
+    function new(element: Element);
+
     //function add(): JqHtml;
     //function addBack(): JqHtml;
 
@@ -55,8 +57,8 @@ extern class JqHtml implements ArrayAccess<Node> {
     //function focusin(): JqHtml;
     //function focusout(): JqHtml;
 
-    @:overload(function (): Array<Node>{})
-    function get(index: Int): Node;
+    @:overload(function (): Array<Element>{})
+    function get(index: Int): Element;
 
     //function has(): JqHtml;
     //function hasClass(): JqHtml;
