@@ -50,7 +50,11 @@ extern class JqHtml implements ArrayAccess<Element> {
     //function fadeTo(): JqHtml;
     //function fadeToggle(): JqHtml;
     //function filter(): JqHtml;
-    //function find(): JqHtml;
+
+    @:overload(function (jqhtml: JqHtml): JqHtml{})
+    @:overload(function (element: Element): JqHtml{})
+    function find(selector: String): JqHtml;
+
     //function finish(): JqHtml;
     //function first(): JqHtml;
     //function focus(): JqHtml;
