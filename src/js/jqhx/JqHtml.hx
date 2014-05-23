@@ -26,7 +26,6 @@ extern class JqHtml implements ArrayAccess<Element> {
     //function appendTo(): JqHtml;
     //function attr(): JqHtml;
     //function before(): JqHtml;
-    //function bind(): JqHtml;
     //function blur(): JqHtml;
     //function change(): JqHtml;
     //function children(): JqHtml;
@@ -97,15 +96,24 @@ extern class JqHtml implements ArrayAccess<Element> {
     //function nextAll(): JqHtml;
     //function nextUntil(): JqHtml;
     //function not(): JqHtml;
-    //function off(): JqHtml;
     //function offset(): JqHtml;
     //function offsetParent(): JqHtml;
 
     @:overload(function (events: String, selector: String, data: Dynamic, handler: Event -> Void): JqHtml{})
-    function on(events: String, ?selector: String, handler: Event -> Void): JqHtml;
+    function one(events: String, ?selector: String, handler: Event -> Void): JqHtml;
 
     @:overload(function (events: String, selector: String, data: Dynamic, handler: Event -> Void): JqHtml{})
-    function one(events: String, ?selector: String, handler: Event -> Void): JqHtml;
+    function on(events: String, ?selector: String, handler: Event -> Void): JqHtml;
+
+    @:overload(function (): JqHtml{})
+    function off(eventType: String, ?selector: String, ?handler: Event -> Void): JqHtml;
+
+    @:overload(function (events: String, selector: String, data: Dynamic, handler: Event -> Void): JqHtml{})
+    function bind(events: String, ?selector: String, handler: Event -> Void): JqHtml;
+
+    @:overload(function (): JqHtml{})
+    function unbind(eventType: String, ?selector: String, ?handler: Event -> Void): JqHtml;
+
 
     //function outerHeight(): JqHtml;
     //function outerWidth(): JqHtml;
@@ -150,7 +158,7 @@ extern class JqHtml implements ArrayAccess<Element> {
     //function toggleClass(): JqHtml;
     //function trigger(): JqHtml;
     //function triggerHandler(): JqHtml;
-    //function unbind(): JqHtml;
+
     //function undelegate(): JqHtml;
     //function unload(): JqHtml;
     //function unwrap(): JqHtml;
