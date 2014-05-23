@@ -162,7 +162,10 @@ extern class JqHtml implements ArrayAccess<Element> {
     //function undelegate(): JqHtml;
     //function unload(): JqHtml;
     //function unwrap(): JqHtml;
+
     //function val(): JqHtml;
+    function val(): Dynamic;  //TODO
+
     //function width(): JqHtml;
     //function wrap(): JqHtml;
     //function wrapAll(): JqHtml;
