@@ -2,10 +2,12 @@ package js.jqhx;
 
 import js.html.Element;
 import js.html.Event;
+import js.html.EventTarget;
 
 @:native("jQuery")
 extern class JqHtml implements ArrayAccess<Element> {
-    @:overload(function (elements: Array<Element>): Void {})
+    @:overload(function (element: EventTarget): Void{})
+    @:overload(function (elements: Array<Element>): Void{})
     function new(element: Element);
 
     //function add(): JqHtml;
@@ -26,11 +28,11 @@ extern class JqHtml implements ArrayAccess<Element> {
     //function appendTo(): JqHtml;
     //function attr(): JqHtml;
 
-    @:overload(function (obj: {}): JqHtml{})
-    @:overload(function (obj: Dynamic<Dynamic>): JqHtml{})
+    @:overload(function (key: String, value: String): JqHtml{})
     @:overload(function (key: String, f: Int -> String -> String): JqHtml{})
-    @:overload(function (key: String): String{})
-    function attr(key: String, value: Dynamic): JqHtml;
+    @:overload(function (obj: Dynamic<String>): JqHtml{})
+    @:overload(function (obj: {}): JqHtml{})
+    function attr(key: String): String;
 
     //function before(): JqHtml;
     //function blur(): JqHtml;
@@ -43,10 +45,10 @@ extern class JqHtml implements ArrayAccess<Element> {
     //function contents(): JqHtml;
     //function css(): JqHtml;
 
-    @:overload(function (obj: {}): JqHtml{})
+    @:overload(function (key: String, value: Dynamic): JqHtml{})
     @:overload(function (obj: Dynamic<Dynamic>): JqHtml{})
-    @:overload(function (?key: String): Dynamic{})
-    function data(key: String, value: Dynamic): JqHtml;
+    @:overload(function (obj: {}): JqHtml{})
+    function data(?key: String): Dynamic;
 
     //function dblclick(): JqHtml;
     //function delay(): JqHtml;
@@ -139,11 +141,11 @@ extern class JqHtml implements ArrayAccess<Element> {
     //function prevAll(): JqHtml;
     //function prevUntil(): JqHtml;
 
-    @:overload(function (obj: {}): JqHtml{})
-    @:overload(function (obj: Dynamic<Dynamic>): JqHtml{})
     @:overload(function (key: String, f: Int -> String -> Dynamic): JqHtml{})
-    @:overload(function (key: String): Dynamic{})
-    function prop(key: String, value: Dynamic): JqHtml;
+    @:overload(function (key: String, value: Dynamic): JqHtml{})
+    @:overload(function (obj: Dynamic<Dynamic>): JqHtml{})
+    @:overload(function (obj: {}): JqHtml{})
+    function prop(key: String): Dynamic;
 
     //function queue(): JqHtml;
     //function ready(): JqHtml;
