@@ -156,8 +156,11 @@ extern class JqHtml implements ArrayAccess<Element> {
     //function toArray(): JqHtml;
     //function toggle(): JqHtml;
     //function toggleClass(): JqHtml;
-    //function trigger(): JqHtml;
-    //function triggerHandler(): JqHtml;
+
+    @:overload(function (event: Event, ?extraParameter: Dynamic): JqHtml{})
+    function trigger(eventType: String, ?extraParameter: Dynamic): JqHtml;
+
+    function triggerHandler(eventType: String, ?extraParameter: Dynamic): JqHtml;
 
     //function undelegate(): JqHtml;
     //function unload(): JqHtml;
