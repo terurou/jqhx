@@ -25,6 +25,13 @@ extern class JqHtml implements ArrayAccess<Element> {
     //function append(): JqHtml;
     //function appendTo(): JqHtml;
     //function attr(): JqHtml;
+
+    @:overload(function (obj: {}): JqHtml{})
+    @:overload(function (obj: Dynamic<Dynamic>): JqHtml{})
+    @:overload(function (key: String, f: Int -> String -> String): JqHtml{})
+    @:overload(function (key: String): String{})
+    function attr(key: String, value: Dynamic): JqHtml;
+
     //function before(): JqHtml;
     //function blur(): JqHtml;
     //function change(): JqHtml;
@@ -35,6 +42,12 @@ extern class JqHtml implements ArrayAccess<Element> {
     //function closest(): JqHtml;
     //function contents(): JqHtml;
     //function css(): JqHtml;
+
+    @:overload(function (obj: {}): JqHtml{})
+    @:overload(function (obj: Dynamic<Dynamic>): JqHtml{})
+    @:overload(function (?key: String): Dynamic{})
+    function data(key: String, value: Dynamic): JqHtml;
+
     //function dblclick(): JqHtml;
     //function delay(): JqHtml;
     //function delegate(): JqHtml;
@@ -114,7 +127,6 @@ extern class JqHtml implements ArrayAccess<Element> {
     @:overload(function (): JqHtml{})
     function unbind(eventType: String, ?selector: String, ?handler: Event -> Void): JqHtml;
 
-
     //function outerHeight(): JqHtml;
     //function outerWidth(): JqHtml;
     //function parent(): JqHtml;
@@ -126,16 +138,27 @@ extern class JqHtml implements ArrayAccess<Element> {
     //function prev(): JqHtml;
     //function prevAll(): JqHtml;
     //function prevUntil(): JqHtml;
-    //function prop(): JqHtml;
+
+    @:overload(function (obj: {}): JqHtml{})
+    @:overload(function (obj: Dynamic<Dynamic>): JqHtml{})
+    @:overload(function (key: String, f: Int -> String -> Dynamic): JqHtml{})
+    @:overload(function (key: String): Dynamic{})
+    function prop(key: String, value: Dynamic): JqHtml;
+
     //function queue(): JqHtml;
     //function ready(): JqHtml;
     //function remove(): JqHtml;
-    //function removeAttr(): JqHtml;
+
+    function removeAttr(key: String): JqHtml;
 
     @:overload(function (f: Int -> String -> Void): JqHtml{})
     function removeClass(className: String): JqHtml;
 
-    //function removeProp(): JqHtml;
+    @:overload(function (list: Array<String>): JqHtml{})
+    function removeData(?key: String): JqHtml;
+
+    function removeProp(key: String): JqHtml;
+
     //function replaceAll(): JqHtml;
     //function replaceWith(): JqHtml;
     //function resize(): JqHtml;
