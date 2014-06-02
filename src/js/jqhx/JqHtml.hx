@@ -81,7 +81,19 @@ extern class JqHtml implements ArrayAccess<Element> {
     //function has(): JqHtml;
     //function hasClass(): JqHtml;
     //function height(): JqHtml;
-    //function hide(): JqHtml;
+
+    @:overload(function (?duration: Int, ?easing: String, hander: Void -> Void): JqHtml{})
+    @:overload(function (options: EffectOptions): JqHtml{})
+    function show(): JqHtml;
+
+    @:overload(function (?duration: Int, ?easing: String, hander: Void -> Void): JqHtml{})
+    @:overload(function (options: EffectOptions): JqHtml{})
+    function hide(): JqHtml;
+
+    @:overload(function (?duration: Int, ?easing: String, hander: Void -> Void): JqHtml{})
+    @:overload(function (options: EffectOptions): JqHtml{})
+    function toggle(): JqHtml;
+
     //function hover(): JqHtml;
 
     @:overload(function (): String{})
@@ -168,7 +180,6 @@ extern class JqHtml implements ArrayAccess<Element> {
     //function scrollLeft(): JqHtml;
     //function scrollTop(): JqHtml;
     //function select(): JqHtml;
-    //function show(): JqHtml;
     //function siblings(): JqHtml;
     //function size(): JqHtml;
     //function slice(): JqHtml;
@@ -179,7 +190,6 @@ extern class JqHtml implements ArrayAccess<Element> {
     //function submit(): JqHtml;
     //function text(): JqHtml;
     //function toArray(): JqHtml;
-    //function toggle(): JqHtml;
     //function toggleClass(): JqHtml;
 
     @:overload(function (event: Event, ?extraParameter: Dynamic): JqHtml{})
@@ -192,10 +202,26 @@ extern class JqHtml implements ArrayAccess<Element> {
     //function unwrap(): JqHtml;
 
     //function val(): JqHtml;
-    function val(): Dynamic;  //TODO
+    @:overload(function (value: Dynamic): JqHtml{})
+    @:overload(function (f: Int -> String -> String): JqHtml{})
+    function val(): Dynamic;
 
     //function width(): JqHtml;
     //function wrap(): JqHtml;
     //function wrapAll(): JqHtml;
     //function wrapInner(): JqHtml;
+}
+
+typedef EffectOptions = {
+    ?duration: Int,
+    ?easing: String,
+    ?queue: Dynamic,
+    ?specialEasing: Dynamic,
+    ?step: Int -> Dynamic -> Void,
+    ?progress: JqPromise -> Int -> Int -> Void,
+    ?complete: Void -> Void,
+    ?start: JqPromise -> Void,
+    ?done: JqPromise -> Bool -> Void,
+    ?fail: JqPromise -> Bool -> Void,
+    ?always: JqPromise -> Bool -> Void
 }
