@@ -29,6 +29,8 @@ extern class JqHtml implements ArrayAccess<Element> {
     //function attr(): JqHtml;
 
     @:overload(function (key: String, value: String): JqHtml{})
+    @:overload(function (key: String, value: Float): JqHtml{})
+    @:overload(function (key: String, value: Bool): JqHtml{})
     @:overload(function (key: String, f: Int -> String -> String): JqHtml{})
     @:overload(function (obj: Dynamic<String>): JqHtml{})
     @:overload(function (obj: {}): JqHtml{})
@@ -60,7 +62,8 @@ extern class JqHtml implements ArrayAccess<Element> {
     //function dequeue(): JqHtml;
     //function detach(): JqHtml;
     //function each(): JqHtml;
-    //function empty(): JqHtml;
+
+    function empty(): JqHtml;
 
     function end(): JqHtml;
 
