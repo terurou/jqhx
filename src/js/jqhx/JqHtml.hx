@@ -41,7 +41,11 @@ extern class JqHtml implements ArrayAccess<Element> {
     //function clearQueue(): JqHtml;
     //function click(): JqHtml;
     //function clone(): JqHtml;
-    //function closest(): JqHtml;
+
+    @:overload(function (selection: JqHtml): JqHtml{})
+    @:overload(function (context: Element): JqHtml{})
+    function closest(selector: String, ?context: Element): JqHtml;
+
     //function contents(): JqHtml;
     //function css(): JqHtml;
 
@@ -57,7 +61,9 @@ extern class JqHtml implements ArrayAccess<Element> {
     //function detach(): JqHtml;
     //function each(): JqHtml;
     //function empty(): JqHtml;
-    //function end(): JqHtml;
+
+    function end(): JqHtml;
+
     //function eq(): JqHtml;
     //function fadeIn(): JqHtml;
     //function fadeOut(): JqHtml;
@@ -124,7 +130,8 @@ extern class JqHtml implements ArrayAccess<Element> {
     //function nextUntil(): JqHtml;
     //function not(): JqHtml;
     //function offset(): JqHtml;
-    //function offsetParent(): JqHtml;
+
+    function offsetParent(): JqHtml;
 
     @:overload(function (events: String, selector: String, data: Dynamic, handler: Event -> Void): JqHtml{})
     function one(events: String, ?selector: String, handler: Event -> Void): JqHtml;
@@ -143,8 +150,11 @@ extern class JqHtml implements ArrayAccess<Element> {
 
     //function outerHeight(): JqHtml;
     //function outerWidth(): JqHtml;
-    //function parent(): JqHtml;
-    //function parents(): JqHtml;
+
+    function parent(?selector: String): JqHtml;
+
+    function parents(?selector: String): JqHtml;
+
     //function parentsUntil(): JqHtml;
     //function position(): JqHtml;
     //function prepend(): JqHtml;
