@@ -49,7 +49,12 @@ extern class JqHtml implements ArrayAccess<Element> {
     function closest(selector: String, ?context: Element): JqHtml;
 
     //function contents(): JqHtml;
-    //function css(): JqHtml;
+
+    @:overload(function (key: Array<String>): Array<String>{})
+    @:overload(function (key: String, value: String): JqHtml{})
+    @:overload(function (key: String, f: Int -> String -> String): JqHtml{})
+    @:overload(function (obj: Dynamic<String>): JqHtml{})
+    function css(key: String): String;
 
     @:overload(function (key: String, value: Dynamic): JqHtml{})
     @:overload(function (obj: Dynamic<Dynamic>): JqHtml{})
