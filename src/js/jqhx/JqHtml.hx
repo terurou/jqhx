@@ -24,7 +24,14 @@ extern class JqHtml implements ArrayAccess<Element> {
     //function ajaxStop(): JqHtml;
     //function ajaxSuccess(): JqHtml;
     //function animate(): JqHtml;
-    //function append(): JqHtml;
+
+    @:overload(function (content: Element): JqHtml{})
+    @:overload(function (content: JqHtml): JqHtml{})
+    @:overload(function (f: Int -> String -> String): JqHtml{})
+    @:overload(function (f: Int -> String -> Element): JqHtml{})
+    @:overload(function (f: Int -> String -> JqHtml): JqHtml{})
+    function append(content: String): JqHtml;
+
     //function appendTo(): JqHtml;
     //function attr(): JqHtml;
 
@@ -179,7 +186,8 @@ extern class JqHtml implements ArrayAccess<Element> {
 
     //function queue(): JqHtml;
     //function ready(): JqHtml;
-    //function remove(): JqHtml;
+
+    function remove(?selector: String): JqHtml;
 
     function removeAttr(key: String): JqHtml;
 
@@ -207,7 +215,9 @@ extern class JqHtml implements ArrayAccess<Element> {
     //function stop(): JqHtml;
     //function submit(): JqHtml;
     //function text(): JqHtml;
-    //function toArray(): JqHtml;
+
+    function toArray(): Array<Element>;
+
     //function toggleClass(): JqHtml;
 
     @:overload(function (event: Event, ?extraParameter: Dynamic): JqHtml{})
