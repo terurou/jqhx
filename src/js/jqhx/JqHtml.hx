@@ -6,6 +6,8 @@ import js.html.EventTarget;
 
 @:native("jQuery")
 extern class JqHtml implements ArrayAccess<Element> {
+    var length(default, never): Int;
+
     @:overload(function (element: EventTarget): Void{})
     @:overload(function (elements: Array<Element>): Void{})
     function new(element: Element);
